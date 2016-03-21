@@ -1,0 +1,12 @@
+[libraries]
+
+#creating static lib
+gcc -Wall -g -c -o libstatic.o libstatic.cpp //compile library
+ar rcs libstatic.a libstatic.o //archive library
+gcc -g -o static_demo static_demo.cpp -L. -lstatic //compile prog with lib linking
+
+#creating shared lib
+gcc -fPIC -Wall -g -c libshared.cpp //compile library
+gcc -g -shared -Wl,-soname,libshared.so -o libshared.so libshared.o -lc //create so object
+gcc -g -o shared_demo shared_demo.cpp -L. -lshared //compile prog with lib linking
+export LD_LIBRARY_PATH="." //adding current directory to library search path
