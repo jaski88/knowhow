@@ -1,0 +1,5 @@
+ 2>&1 // redirects stderr to stdin
+ 
+ >/dev/null 2>&1 //redirects all output to /dev/null
+ 
+echo $? // prints last command exit status
