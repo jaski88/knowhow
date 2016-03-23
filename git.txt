@@ -1,0 +1,45 @@
+// configuration file ~/gitconfig
+
+[user]
+        name = Rafal Jaskurzynski
+        email = rafal@jaskurzynski.pl
+[pull]
+        rebase = true
+[merge]
+        tool = meld
+[alias]
+        st = status
+        hist = log --graph --decorate --oneline
+        s = status -s
+        last = log -1 --stat
+[color]
+        ui = auto
+[diff]
+        tool = meld
+        
+// tools
+tig
+git gui
+cola
+
+//commands
+
+git push origin HEAD:refs/for/staging // pushing to remote branch
+
+// log command
+git log -p // detailed view
+git log -n [limit>] // limit output
+git log --oneline // log in one line
+git log --author="John Smith" // filtrer by author
+git log [file] // filtrer by file
+git log --graph --decorate --oneline // tree view
+
+git diff ..HEAD~3 --stat // modified files in last 3 commits
+
+git rebase -i HEAD~3 //reordering commits
+
+//removing files from commit (ammending commit)
+git reset --soft HEAD~1 //go back
+git reset HEAD [path_to_file] //restore previous file version
+git commit -c ORIG_HEAD // commit again with last commit message
+
